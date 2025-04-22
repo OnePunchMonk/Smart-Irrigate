@@ -47,7 +47,7 @@ By analyzing environmental and crop data, the system determines optimal watering
 - Docker (for containerized deployment)  
 - R (for R-based data analysis)  
 - Apache Spark (for running PySpark)
--Streamlit (for running GUI)  
+- Streamlit (for running GUI)  
 
 ### Installation
 
