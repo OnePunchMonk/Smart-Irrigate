@@ -126,7 +126,7 @@ curl -X POST http://localhost:8000/predict   -H "Content-Type: multipart/form-da
 
 For a hardware simulation of the irrigation system, refer to the [AIHT Wokwi Simulation Repository](https://github.com/chaitanyadav69/AIHT).
 
-https://wokwi.com/projects/428958546126055425
+- Or refer [Deployment](https://wokwi.com/projects/428958546126055425)
 
 ## Streamlit Deployment on HF Spaces 
 
