@@ -15,6 +15,7 @@ By analyzing environmental and crop data, the system determines optimal watering
 - **Big Data Processing**: Employs PySpark for training large-scale teacher models.
 - **API Service**: Provides a FastAPI-based backend to serve model predictions.
 - **Docker Integration**: Includes Docker support for containerized deployment.
+- **Streamlit GUI**: Offers a GUI for user to specify sensor readings and recieve prediction.
 - **Power BI Dashboard**: Offers a Power BI report for visualizing irrigation schedules and model insights.
 
 ## 📁 Project Structure
@@ -24,7 +25,7 @@ By analyzing environmental and crop data, the system determines optimal watering
 ├── Dockerfile                   # Docker configuration
 ├── eda-aihtproject.ipynb        # Exploratory Data Analysis notebook (Python)
 ├── analysis_r_code.R            # Exploratory Data Analysis in R
-├── frontend.py                  # Frontend interface (if applicable)
+├── frontend.py                  # Frontend interface (Streamlit)
 ├── irrigation_aiht_powerbi.pbix # Power BI dashboard file
 ├── Irrigation Scheduling.csv    # Dataset for training and analysis
 ├── model_train_and_export.py    # Script to train and export models
@@ -45,7 +46,8 @@ By analyzing environmental and crop data, the system determines optimal watering
 - Python 3.8 or higher  
 - Docker (for containerized deployment)  
 - R (for R-based data analysis)  
-- Apache Spark (for running PySpark)  
+- Apache Spark (for running PySpark)
+-Streamlit (for running GUI)  
 
 ### Installation
 
@@ -118,6 +120,7 @@ curl -X POST http://localhost:8000/predict   -H "Content-Type: multipart/form-da
 ## 📈 Visualization
 
 - `irrigation_aiht_powerbi.pbix`: Power BI dashboard for irrigation schedules and model insights.
+- `frontend.py`: GUI for non-technical users.
 
 ## 🔗 Wokwi Simulation
 
