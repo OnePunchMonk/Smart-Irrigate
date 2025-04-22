@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+onnxruntime
+torch
+numpy
+scikit-learn
+pandas
