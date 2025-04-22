@@ -114,8 +114,8 @@ curl -X POST http://localhost:8000/predict   -H "Content-Type: multipart/form-da
 
 ## 📊 Data Analysis
 
-- `eda-aihtproject.ipynb`: Jupyter notebook for EDA using Python.  
-- `analysis_r_code.R`: R script for additional statistical analysis and visualizations.
+- `eda-aihtproject.ipynb`: R script for additional statistical analysis and visualizations.
+(Run on Kaggle env)
 
 ## 📈 Visualization
 
