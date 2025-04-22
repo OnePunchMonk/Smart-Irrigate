@@ -128,6 +128,7 @@ For a hardware simulation of the irrigation system, refer to the [AIHT Wokwi Sim
 
 https://wokwi.com/projects/428958546126055425
 
+## Streamlit Deployment on HF Spaces , refer[this link](https://huggingface.co/spaces/OnePunchMonk101010/smart-irrigation).
 ---
 
 *Note: Ensure all environment variables and configurations are set appropriately before deploying the application.*
