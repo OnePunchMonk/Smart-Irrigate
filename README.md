@@ -1,5 +1,5 @@
 
-# AIHT-Project
+# SmartIrrigate
 
 An AI-powered irrigation scheduling system designed to optimize water usage in agriculture by leveraging machine learning, data analytics, and cross-language support including R and PySpark.
 
