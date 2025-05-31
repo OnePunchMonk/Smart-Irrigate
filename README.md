@@ -21,22 +21,32 @@ By analyzing environmental and crop data, the system determines optimal watering
 ## 📁 Project Structure
 
 ```plaintext
-├── app.py                       # FastAPI application
-├── Dockerfile                   # Docker configuration
-├── eda-aihtproject.ipynb        # Exploratory Data Analysis notebook (Python)
-├── analysis_r_code.R            # Exploratory Data Analysis in R
-├── frontend.py                  # Frontend interface (Streamlit)
-├── irrigation_aiht_powerbi.pbix # Power BI dashboard file
-├── Irrigation Scheduling.csv    # Dataset for training and analysis
-├── model_train_and_export.py    # Script to train and export models
-├── pyspark_teacher.py           # PySpark implementation for teacher model
-├── requirements.txt             # Python dependencies
-├── student_model.onnx           # Exported student model in ONNX format
-├── student_model.pt             # Trained student model in PyTorch format
-├── teacher.py                   # Teacher model training script
-├── teacher_model.pt             # Trained teacher model in PyTorch format
-├── test_input.txt               # Sample input for testing
-└── README.md                    # Project documentation
+├── api/
+│   └── app.py                      # FastAPI application entry point
+├── app/
+│   ├── __init__.py                 # Package initializer
+│   ├── eda-aihtproject.ipynb       # Exploratory data analysis notebook
+│   ├── frontend.py                 # Frontend logic for user interface
+│   ├── model_train_and_export.py  # Model training and export utilities
+│   ├── model_utils.py              # Model utility functions
+│   ├── pyspark_teacher.py         # PySpark-based teacher model processing
+│   └── teacher.py                 # Teacher model inference logic
+├── artifacts/
+│   ├── student_model.onnx          # ONNX format student model
+│   ├── student_model.pt            # PyTorch format student model
+│   └── teacher_model.pt            # PyTorch format teacher model
+├── dataset/
+│   └── Irrigation Scheduling.csv   # Dataset file for irrigation scheduling
+├── Hardware Simulation/
+│   └── app.py                     # Simulation application for hardware testing
+├── tests/
+│   ├── test_input.txt              # Sample input data for testing
+│   └── test_model.py               # Unit tests for model functionalities
+├── Dockerfile                     # Docker configuration for containerization
+├── README.md                      # Project overview and documentation
+├── irrigation_aiht_powerbi.pbix   # Power BI report for irrigation analysis
+├── requirements.txt               # Python dependencies
+└── run_instructions.md            # Instructions for running the application
 ```
 
 ## 🚀 Getting Started
