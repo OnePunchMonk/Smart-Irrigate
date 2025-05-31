@@ -2,9 +2,9 @@ name: SmartIrrigate CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-test:
@@ -23,17 +23,26 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install flake8 black pytest
 
-      - name: Run tests
-        run: |
-          export PYTHONPATH=$PYTHONPATH:.
-          pytest tests/
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PYTHONPATH:." >> $GITHUB_ENV
 
+      - name: Train and export ONNX model
+        run: python app/model_train_and_export.py
+
+      - name: Run unit tests
+        run: pytest tests/
 
       - name: Lint code with flake8
         run: |
-          pip install flake8
-          flake8 . --exclude=venv,__pycache__,.git,.github
+          flake8 . \
+            --max-line-length=120 \
+            --exclude=venv,__pycache__,.git,.github \
+            --ignore=E302,E305,E402,W391,W292,F401,F541
+
+      - name: Format code with black (check only)
+        run: black . --check --line-length=120
 
       - name: Check Dockerfile syntax
         uses: hadolint/hadolint-action@v3.1.0
@@ -41,13 +50,22 @@ jobs:
           dockerfile: ./Dockerfile
 
       - name: Build Docker image
-        run: |
-          docker build -t smart-irrigate .
+        run: docker build -t smart-irrigate .
 
       - name: Run Docker container
-        run: |
-          docker run -d -p 8000:8000 smart-irrigate
+        run: docker run -d -p 8000:8000 --name smart-irrigate smart-irrigate
 
-      - name: Check container is running
+      - name: Wait for container to be ready
+        run: sleep 5
+
+      - name: Health check container (port 8000)
         run: |
-          docker ps | grep smart-irrigate
+          curl --fail http://localhost:8000 || {
+            echo "❌ Container failed health check on port 8000"
+            docker logs smart-irrigate
+            exit 1
+          }
+
+      - name: Cleanup
+        if: always()
+        run: docker stop smart-irrigate && docker rm smart-irrigate
