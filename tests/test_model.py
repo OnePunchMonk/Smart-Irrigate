@@ -12,6 +12,6 @@ def test_onnx_model_prediction():
 
     predicted = predict_from_text(session, content)
     assert isinstance(predicted, int)
-    assert predicted in [0, 1]  # adjust if more classes
+    assert predicted in [0, 1, 2, 3]  # adjust if more classes
 
     print(f"Predicted class: {predicted}")
