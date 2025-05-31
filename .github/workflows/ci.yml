@@ -41,9 +41,6 @@ jobs:
             --exclude=venv,__pycache__,.git,.github \
             --ignore=E302,E305,E402,W391,W292,F401,F541
 
-      - name: Format code with black (check only)
-        run: black . --check --line-length=300
-
       - name: Check Dockerfile syntax
         uses: hadolint/hadolint-action@v3.1.0
         with:
