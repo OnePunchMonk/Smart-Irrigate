@@ -66,7 +66,7 @@ from torch.serialization import add_safe_globals
 # Register the class if it's a custom class
 add_safe_globals([TeacherNet])
 
-teacher = torch.load("teacher_model.pt", weights_only=False)
+teacher = torch.load("artifacts/teacher_model.pt", weights_only=False)
 opt = torch.optim.Adam(student.parameters(), lr=0.001)
 
 T, alpha = 3.0, 0.7
@@ -89,10 +89,10 @@ for epoch in range(20):
         opt.zero_grad(); loss.backward(); opt.step()
 
 # Save final model
-torch.save(student.state_dict(), "student_model.pt")
+torch.save(student.state_dict(), "artifacts/student_model.pt")
 
 # Export to ONNX
 dummy_input = torch.randn(1, X_train.shape[1])
-torch.onnx.export(student, dummy_input, "student_model.onnx", input_names=["input"], output_names=["output"],
+torch.onnx.export(student, dummy_input, "artifacts/student_model.onnx", input_names=["input"], output_names=["output"],
                   dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}}, opset_version=11)
 
