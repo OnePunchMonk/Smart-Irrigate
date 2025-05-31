@@ -5,7 +5,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY api/app.py .
-COPY artifats/student_model.onnx .
+COPY artifacts/student_model.onnx .
 
 EXPOSE 8000
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
