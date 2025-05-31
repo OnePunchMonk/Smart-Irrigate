@@ -46,7 +46,9 @@ def log_to_csv(input_values, output_data):
             with open(LOG_FILE, mode='a', newline='') as file:
                 writer = csv.writer(file)
                 if not file_exists:
-                    writer.writerow(['timestamp'] + [f'input_{i+1}' for i in range(6)] + [f'output_{i+1}' for i in range(4)])
+                    writer.writerow(['timestamp'] + 
+                                    [f'input_{i+1}' for i in range(6)] +
+                                    [f'output_{i+1}' for i in range(4)])
                 writer.writerow([datetime.now()] + input_values + output_data)
         except Exception as e:
             print(f"[LOG ERROR] Failed to write to CSV: {e}")
@@ -69,7 +71,9 @@ def infer():
         input_values = data['inputs']
 
         if not isinstance(input_values, list) or len(input_values) != EXPECTED_INPUT_SHAPE[1]:
-            return flask.jsonify({"error": f"Expected a list of {EXPECTED_INPUT_SHAPE[1]} float values in 'inputs'"}), 400
+            return flask.jsonify({"error": 
+                                  f"Expected a list of {EXPECTED_INPUT_SHAPE[1]} float values in 'inputs'"
+                                  }), 400
 
         input_array = np.array(input_values, dtype=np.float32).reshape(EXPECTED_INPUT_SHAPE)
         feeds = {INPUT_NAME: input_array}

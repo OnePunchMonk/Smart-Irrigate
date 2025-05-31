@@ -27,8 +27,6 @@ y_test_tensor = torch.tensor(y_test.values, dtype=torch.long)
 
 train_loader = DataLoader(TensorDataset(X_train_tensor, y_train_tensor), batch_size=32, shuffle=True)
 
-
-
 class TeacherNet(nn.Module):
     def __init__(self, input_size, num_classes):
         super(TeacherNet, self).__init__()
@@ -42,8 +40,6 @@ class TeacherNet(nn.Module):
         x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
         return self.out(x)
-
-
 
 # Define student model
 class StudentNet(nn.Module):
@@ -86,7 +82,9 @@ for epoch in range(20):
             t_logit = teacher(xb)
         s_logit = student(xb)
         loss = distill_loss(s_logit, t_logit, yb, T, alpha)
-        opt.zero_grad(); loss.backward(); opt.step()
+        opt.zero_grad() 
+        loss.backward()
+        opt.step()
 
 # Save final model
 torch.save(student.state_dict(), "artifacts/student_model.pt")
