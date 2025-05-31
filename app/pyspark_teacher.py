@@ -8,7 +8,7 @@ import numpy as np
 spark = SparkSession.builder.appName("IrrigationPipeline").getOrCreate()
 
 # Load dataset
-df_spark = spark.read.csv("Irrigation Scheduling.csv", header=True, inferSchema=True)
+df_spark = spark.read.csv("dataset/Irrigation Scheduling.csv", header=True, inferSchema=True)
 
 # Drop unnecessary columns and handle nulls
 df_spark = df_spark.drop("id", "date", "time")
