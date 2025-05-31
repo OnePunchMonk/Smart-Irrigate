@@ -34,7 +34,7 @@ jobs:
           flake8 . --exclude=venv,__pycache__,.git,.github
 
       - name: Check Dockerfile syntax
-        uses: hadolint/hadolint-action@v1
+        uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: ./Dockerfile
 
