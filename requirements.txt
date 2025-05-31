@@ -5,3 +5,4 @@ torch
 numpy
 scikit-learn
 pandas
+pytest
