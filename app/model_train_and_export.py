@@ -82,7 +82,7 @@ for epoch in range(20):
             t_logit = teacher(xb)
         s_logit = student(xb)
         loss = distill_loss(s_logit, t_logit, yb, T, alpha)
-        opt.zero_grad() 
+        opt.zero_grad()
         loss.backward()
         opt.step()
 
