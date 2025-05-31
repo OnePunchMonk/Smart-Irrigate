@@ -49,10 +49,3 @@ jobs:
       - name: Check container is running
         run: |
           docker ps | grep smart-irrigate
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: pytest-results
-          path: tests/
