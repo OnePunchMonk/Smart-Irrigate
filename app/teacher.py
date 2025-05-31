@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from torch.utils.data import TensorDataset, DataLoader
 
 # Load dataset
-df = pd.read_csv("Irrigation Scheduling.csv")
+df = pd.read_csv("dataset/Irrigation Scheduling.csv")
 df = df.drop(columns=["id", "date", "time"])
 df["altitude"].fillna(df["altitude"].mean(), inplace=True)
 
