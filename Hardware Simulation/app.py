@@ -11,7 +11,7 @@ import threading
 app = flask.Flask(__name__)
 
 # --- Configuration ---
-MODEL_PATH = 'artifiacts\student_model.onnx'  # Make sure this file is deployed with your app
+MODEL_PATH = 'artifiacts/student_model.onnx'  # Make sure this file is deployed with your app
 INPUT_NAME = None
 OUTPUT_NAME = None
 EXPECTED_INPUT_SHAPE = (1, 6)

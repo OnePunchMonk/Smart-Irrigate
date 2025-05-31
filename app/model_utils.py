@@ -3,7 +3,7 @@
 import numpy as np
 import onnxruntime as ort
 
-MODEL_PATH = "artifacts\student_model.onnx"
+MODEL_PATH = "artifacts/student_model.onnx"
 
 def load_session():
     return ort.InferenceSession(MODEL_PATH)
