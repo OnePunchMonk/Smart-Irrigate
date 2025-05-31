@@ -26,7 +26,9 @@ jobs:
 
       - name: Run tests
         run: |
+          export PYTHONPATH=$PYTHONPATH:.
           pytest tests/
+
 
       - name: Lint code with flake8
         run: |
